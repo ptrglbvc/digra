@@ -1,0 +1,85 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: center;
+
+    color-scheme: light dark;
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: white;
+
+    --primary: white;
+    --secondary: black;
+
+    color: var(--secondary);
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#root {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+.big-input {
+    width: 300px;
+    height: 400px;
+    margin: 20px;
+    vertical-align: top;
+    background-color: white;
+    color: black;
+    box-shadow: 0.5em 0.5em;
+    padding: 0.5em;
+    border: 1.5px solid black;
+    resize: none;
+    transition: box-shadow 0.4s;
+    font-size: clamp(10px, 4vh, 15px);
+}
+
+.text-input-area p {
+    margin-bottom: 0;
+    margin-top: 20px;
+    font-size: clamp(20px, 4vw, 30px);
+}
+
+.big-input:focus {
+    outline: none;
+    box-shadow: 0.5em 0.5em 0.3em 0.4em;
+    transition: box-shadow 0.4s;
+}
+
+*::selection {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
