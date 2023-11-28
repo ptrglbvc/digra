@@ -1,10 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import latinToCyrillic from "./alphabets/latinToCyrillic.json";
 import cyrillicToLatin from "./alphabets/cyrillicToLatin.json";
 
 function App() {
     let [latin, setLatin] = useState("Napiši nešto ovde");
     let [cyrillic, setCyrillic] = useState("Напиши нешто овде");
+
+    useEffect(() => {
+        const handleClick = (event: Event) => {
+            const button = event.currentTarget as HTMLElement;
+            const oldButtonText = button.innerHTML;
+
+            if (oldButtonText === "Kopiraj") button.innerHTML = "Kopirano";
+            else if (oldButtonText === "Pejstuj")
+                button.innerHTML = "Pejstovano";
+
+            button.className = "neo-button";
+            setTimeout(() => {
+                button.className = "button";
+                button.innerHTML = oldButtonText;
+            }, 500);
+        };
+
+        let buttons = document.getElementsByClassName("button");
+
+        for (let button of buttons) {
+            button.addEventListener("click", handleClick);
+        }
+        return () => {
+            for (let button of buttons)
+                button.removeEventListener("click", handleClick);
+        };
+    }, []);
 
     function replaceText(text: string, type: string = "latin") {
         let letters = type === "latin" ? latinToCyrillic : cyrillicToLatin;
@@ -41,7 +68,7 @@ function App() {
 
     return (
         <>
-            <div className="text-input-area">
+            <div className="text-input-area latin-area">
                 <p>Latinica</p>
                 <textarea
                     value={latin}
@@ -50,8 +77,32 @@ function App() {
                     onChange={(e) => replaceText(e.target.value, "latin")}
                     spellCheck="false"
                 />
+                <div className="button-area">
+                    <button
+                        className="button"
+                        onClick={() => {
+                            if (latin.trim())
+                                navigator.clipboard.writeText(latin);
+                        }}
+                    >
+                        Kopiraj
+                    </button>
+                    <button
+                        className="button"
+                        onClick={async () => {
+                            let pasta = await navigator.clipboard.readText();
+                            let latin = document.getElementById("latin");
+                            if (latin != null) latin.textContent = pasta;
+                            else return;
+                            replaceText(latin?.textContent as string, "latin");
+                            document.getElementsByClassName("paste-button");
+                        }}
+                    >
+                        Pejstuj
+                    </button>
+                </div>
             </div>
-            <div className="text-input-area">
+            <div className="text-input-area cyrillic-area">
                 <p>Ћирилица</p>
                 <textarea
                     value={cyrillic}
@@ -60,6 +111,32 @@ function App() {
                     onChange={(e) => replaceText(e.target.value, "cyrillic")}
                     spellCheck="false"
                 />
+                <div className="button-area">
+                    <button
+                        className="button"
+                        onClick={() => {
+                            if (cyrillic.trim())
+                                navigator.clipboard.writeText(cyrillic);
+                        }}
+                    >
+                        Kopiraj
+                    </button>
+                    <button
+                        className="button"
+                        onClick={async () => {
+                            let pasta = await navigator.clipboard.readText();
+                            let cyrillic = document.getElementById("cyrillic");
+                            if (cyrillic != null) cyrillic.textContent = pasta;
+                            else return;
+                            replaceText(
+                                cyrillic?.textContent as string,
+                                "cyrillic"
+                            );
+                        }}
+                    >
+                        Pejstuj
+                    </button>
+                </div>
             </div>
         </>
     );

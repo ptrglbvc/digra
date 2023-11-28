@@ -67,6 +67,11 @@ button {
     font-size: clamp(10px, 4vh, 15px);
 }
 
+.text-input-area {
+    display: flex;
+    flex-direction: column;
+}
+
 .text-input-area p {
     margin-bottom: 0;
     margin-top: 20px;
@@ -77,6 +82,39 @@ button {
     outline: none;
     box-shadow: 0.5em 0.5em 0.3em 0.4em;
     transition: box-shadow 0.4s;
+}
+
+.button-area {
+    display: flex;
+    flex-direction: row-reverse;
+    /* justify-content: space-around; */
+    gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.button-area:last-child {
+    margin-right: 12px;
+}
+
+.button {
+    border: solid 2px black;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #555555;
+    transition: background-color 0.3s;
+}
+
+.neo-button {
+    border: solid 2px black;
+    border-radius: 0;
+    background-color: var(--primary);
+    color: var(--secondary);
+    transition: all 0.4s;
 }
 
 *::selection {
