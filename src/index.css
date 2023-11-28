@@ -54,7 +54,7 @@ button {
 
 .big-input {
     width: clamp(300px, 80vw, 500px);
-    height: 400px;
+    height: 450px;
     margin: 20px;
     vertical-align: top;
     background-color: white;
