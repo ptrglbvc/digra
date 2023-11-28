@@ -19,7 +19,7 @@ function App() {
             setTimeout(() => {
                 button.className = "button";
                 button.innerHTML = oldButtonText;
-            }, 500);
+            }, 800);
         };
 
         let buttons = document.getElementsByClassName("button");
