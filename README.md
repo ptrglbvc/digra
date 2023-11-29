@@ -1,7 +1,5 @@
 # Digra
 
-## O Aplikaciji
-
 Ova React aplikacija omogućava konverziju (transliteraciju) srpskog ćiriličnog pisma u latinično i obrnuto. To je jednostavan, korisnički prijatan alat koji može biti koristan svima koji rade sa srpskim tekstom u različitim pismima, kao i onima koji tek počinju da uče srpski.
 
 ## Karakteristike

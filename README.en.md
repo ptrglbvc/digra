@@ -1,8 +1,4 @@
-Here's the translation of your modified README content into English:
-
 # Digra
-
-## About the Application
 
 This React application facilitates the conversion (transliteration) of Serbian Cyrillic script to Latin and vice versa. It's a simple, user-friendly tool that can be useful for everyone working with Serbian text in different scripts, as well as those who are just beginning to learn Serbian.
 
