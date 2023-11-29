@@ -1,30 +1,51 @@
-# React + TypeScript + Vite
+# Digra
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## O Aplikaciji
 
-Currently, two official plugins are available:
+Ova React aplikacija omogućava konverziju (transliteraciju) srpskog ćiriličnog pisma u latinično i obrnuto. To je jednostavan, korisnički prijatan alat koji može biti koristan svima koji rade sa srpskim tekstom u različitim pismima, kao i onima koji tek počinju da uče srpski.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Karakteristike
 
-## Expanding the ESLint configuration
+-   **Dvosmerna Transliteracija**: Lako pretvorite tekst iz latinice u ćirilicu i obrnuto.
+-   **Prijatan Korisnički Interfejs**: Jednostavan i intuitivan interfejs koji olakšava transliteraciju.
+-   **Trenutna Konverzija**: Realno vreme transliteracije dok kucate.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Početak Rada
 
-- Configure the top-level `parserOptions` property like this:
+### Preduslovi
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+-   Proverite da li imate instaliran [Node.js](https://nodejs.org/) na vašem sistemu.
+-   Ovaj projekat je napravljen uz pomoć Vite, brzim i modernim alatom za izgradnju JavaScripta.
+
+### Instalacija
+
+1. Klonirajte repozitorijum:
+    ```bash
+    git clone https://github.com/ptrglbvc/digra.git
+    ```
+2. Navigirajte u direktorijum projekta:
+    ```bash
+    cd digra
+    ```
+3. Instalirajte zavisnosti:
+    ```bash
+    npm install
+    ```
+
+### Pokretanje Aplikacije
+
+Da biste pokrenuli aplikaciju lokalno:
+
+```bash
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Aplikacija će biti dostupna na `http://localhost:5173`, osim ako već nije pokrenut server na tom portu.
+
+## Korišćenje
+
+Jednostavno otkucajte ili nalepite tekst u pismu iz kojeg želite da konvertujete, i aplikacija će automatski prikazati transliterirani tekst u drugom pismu.
+
+## Doprinos
+
+Doprinosi su dobrodošli. Molimo vas prvo otvorite problem da biste diskutovali šta želite promeniti ili dodati.
