@@ -1,10 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import latinToCyrillic from "./alphabets/latinToCyrillic.json";
 import cyrillicToLatin from "./alphabets/cyrillicToLatin.json";
+
+type Script = {
+    type: "cyrillic" | "latin";
+};
 
 function App() {
     let [latin, setLatin] = useState("Napiši nešto ovde");
     let [cyrillic, setCyrillic] = useState("Напиши нешто овде");
+    let cyrillicRef = useRef<any>();
+    let latinRef = useRef<any>();
 
     useEffect(() => {
         const handleClick = (event: Event) => {
@@ -12,8 +18,8 @@ function App() {
             //be better if I coded these values in an object,
             //but I think that this project is too small for that
             const button = event.currentTarget as HTMLElement;
-            if ((button.innerHTML = "Kopirano")) button.innerHTML = "Kopiraj";
-            if ((button.innerHTML = "Pejstovano")) button.innerHTML = "Pejstuj";
+            if (button.innerHTML === "Kopirano") button.innerHTML = "Kopiraj";
+            if (button.innerHTML === "Pejstovano") button.innerHTML = "Pejstuj";
 
             const oldButtonText = button.innerHTML;
 
@@ -39,7 +45,7 @@ function App() {
         };
     }, []);
 
-    function replaceText(text: string, type: string = "latin") {
+    function replaceText(text: string, { type }: Script) {
         let letters = type === "latin" ? latinToCyrillic : cyrillicToLatin;
         if (type === "latin") setLatin(text);
         else setCyrillic(text);
@@ -77,10 +83,13 @@ function App() {
             <div className="text-input-area latin-area">
                 <p>Latinica</p>
                 <textarea
+                    ref={latinRef}
                     value={latin}
                     className="big-input"
                     id="latin"
-                    onChange={(e) => replaceText(e.target.value, "latin")}
+                    onChange={(e) =>
+                        replaceText(e.target.value, { type: "latin" })
+                    }
                     spellCheck="false"
                 />
                 <div className="button-area">
@@ -100,8 +109,13 @@ function App() {
                             let latin = document.getElementById("latin");
                             if (latin != null) latin.textContent = pasta;
                             else return;
-                            replaceText(latin?.textContent as string, "latin");
+                            replaceText(latin?.textContent as string, {
+                                type: "latin",
+                            });
                             document.getElementsByClassName("paste-button");
+
+                            if (cyrillicRef.current)
+                                cyrillicRef.current.focus();
                         }}
                     >
                         Pejstuj
@@ -111,10 +125,13 @@ function App() {
             <div className="text-input-area cyrillic-area">
                 <p>Ћирилица</p>
                 <textarea
+                    ref={cyrillicRef}
                     value={cyrillic}
                     className="big-input"
                     id="cyrillic"
-                    onChange={(e) => replaceText(e.target.value, "cyrillic")}
+                    onChange={(e) =>
+                        replaceText(e.target.value, { type: "cyrillic" })
+                    }
                     spellCheck="false"
                 />
                 <div className="button-area">
@@ -134,10 +151,11 @@ function App() {
                             let cyrillic = document.getElementById("cyrillic");
                             if (cyrillic != null) cyrillic.textContent = pasta;
                             else return;
-                            replaceText(
-                                cyrillic?.textContent as string,
-                                "cyrillic"
-                            );
+                            replaceText(cyrillic?.textContent as string, {
+                                type: "cyrillic",
+                            });
+
+                            if (latinRef.current) latinRef.current.focus();
                         }}
                     >
                         Pejstuj
