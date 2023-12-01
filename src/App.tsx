@@ -8,7 +8,13 @@ function App() {
 
     useEffect(() => {
         const handleClick = (event: Event) => {
+            //check if the user clicked the button many times in a row, would probably
+            //be better if I coded these values in an object,
+            //but I think that this project is too small for that
             const button = event.currentTarget as HTMLElement;
+            if ((button.innerHTML = "Kopirano")) button.innerHTML = "Kopiraj";
+            if ((button.innerHTML = "Pejstovano")) button.innerHTML = "Pejstuj";
+
             const oldButtonText = button.innerHTML;
 
             if (oldButtonText === "Kopiraj") button.innerHTML = "Kopirano";
