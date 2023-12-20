@@ -101,6 +101,8 @@ button {
     border: solid 2px black;
     border-radius: 0;
     transition: all 0.3s ease;
+    color: var(--primary);
+    background-color: var(--secondary);
 }
 
 .button:hover {
