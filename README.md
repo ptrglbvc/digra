@@ -2,6 +2,8 @@
 
 Ova React aplikacija omogućava konverziju (transliteraciju) srpskog ćiriličnog pisma u latinično i obrnuto. To je jednostavan, korisnički prijatan alat koji može biti koristan svima koji rade sa srpskim tekstom u različitim pismima, kao i onima koji tek počinju da uče srpski.
 
+Meni je lično najkorisnija za pisanje eseja koji obavezno moraju biti napisani ćirilicom. Ne volim pisati ćirilicom na kompjuteru, moji prsti su naviknuti na latinicu.
+
 ## Karakteristike
 
 -   **Dvosmerna Transliteracija**: Lako pretvorite tekst iz latinice u ćirilicu i obrnuto.
