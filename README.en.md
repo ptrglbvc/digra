@@ -2,6 +2,8 @@
 
 This React application facilitates the conversion (transliteration) of Serbian Cyrillic script to Latin and vice versa. It's a simple, user-friendly tool that can be useful for everyone working with Serbian text in different scripts, as well as those who are just beginning to learn Serbian.
 
+I personally use it for assignments which I need to write in Cyrillic, which I hate using with physical keyboards.
+
 ## Features
 
 -   **Bidirectional Transliteration**: Easily convert text from Latin to Cyrillic script and vice versa.
